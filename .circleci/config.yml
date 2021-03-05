@@ -17,13 +17,15 @@ jobs:
             # Variables
             FUNCTION_NAME=sendAlertLinkedin
             ENTRYPOINT=sendAlertLinkedin
+            GCP_PROJECT=jordan-playground
             # Deploy command
             gcloud functions deploy $FUNCTION_NAME \
               --entry-point $ENTRYPOINT \
               --runtime nodejs10 \
               --trigger-http \
               --region europe-west1 \
-              --allow-unauthenticated
+              --allow-unauthenticated \
+              --project $GCP_PROJECT
 workflows:
   version: 2
   build-test-and-deploy:
