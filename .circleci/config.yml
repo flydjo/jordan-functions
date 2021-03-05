@@ -14,11 +14,10 @@ jobs:
           command: |
             # Move into directory
             cd functions/sendAlertLinkedin
-            pwd
             # Variables
             FUNCTION_NAME=sendAlertLinkedin
             ENTRYPOINT=sendAlertLinkedin
-            GCP_PROJECT=jordan-playground
+            GCP_PROJECT=jordan-playground-306709 
             # Deploy command
             gcloud functions deploy $FUNCTION_NAME \
               --entry-point $ENTRYPOINT \
