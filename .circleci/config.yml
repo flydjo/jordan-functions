@@ -8,12 +8,12 @@ jobs:
       - run:
           name: Authorize GCloud Command Line Tool
           command: |
-            echo $GCLOUD_SERVICE_KEY | base64 --decode | gcloud auth activate-service-account --key-file=-
+            echo $GCLOUD_SERVICE_KEY | base64 --decode | gcloud auth activate-service-account --key-file=jordan-playground-306709-e0fc53a3e506.json
       - run:
           name: Deploy To Google Cloud Functions
           command: |
             # Move into directory
-            cd functions/sendAlertLinkedin
+            cd ../functions/sendAlertLinkedin
             # Variables
             FUNCTION_NAME=sendAlertLinkedin
             ENTRYPOINT=sendAlertLinkedin
@@ -24,7 +24,8 @@ jobs:
               --runtime nodejs10 \
               --trigger-http \
               --region europe-west1 \
-              --allow-unauthenticated
+              --allow-unauthenticated \
+              --project $GCP_PROJECT
 workflows:
   version: 2
   build-test-and-deploy:
