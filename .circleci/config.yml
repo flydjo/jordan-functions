@@ -13,7 +13,8 @@ jobs:
           name: Deploy To Google Cloud Functions
           command: |
             # Move into directory
-            cd ../functions/sendAlertLinkedin
+            cd functions/sendAlertLinkedin
+            pwd
             # Variables
             FUNCTION_NAME=sendAlertLinkedin
             ENTRYPOINT=sendAlertLinkedin
